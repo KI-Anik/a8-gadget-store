@@ -13,7 +13,7 @@ const Banner = () => {
 
             {/* Image section start */}
             <div className='flex justify-center'>
-                <div className=' relative bottom-60 border  w-1/2 p-3 rounded-3xl  mt-7'>
+                <div className=' relative bottom-60 border w-1/2 p-3 rounded-3xl  mt-7'>
                     <img className='rounded-2xl w-full' src="/public/assets/banner.jpg" alt="" />
                 </div>
             </div>

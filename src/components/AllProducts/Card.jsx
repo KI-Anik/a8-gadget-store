@@ -9,12 +9,12 @@ const Card = ({ card }) => {
             <figure className="px-10 pt-10">
                 <img
                     src={product_image}
-                    alt="Shoes"
+                    alt="gadget"
                     className="rounded-xl" />
             </figure>
             <div className="card-body items-center text-center">
                 <h2 className="card-title">{product_title}</h2>
-                <p>{price}</p>
+                <p>Price: ${price}</p>
                 <div className="card-actions">
                     <Link to={`/details/${id}`}>
                     <button  className="btn btn-primary">View Details</button>

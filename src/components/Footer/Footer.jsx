@@ -2,7 +2,7 @@ import React from 'react';
 
 const Footer = () => {
     return (
-        <div className='bg-base-200 text-center space-y-10 pt-10'>
+        <footer className=' text-center space-y-10 pt-10'>
             <div>
                 <h1 className='text-3xl font-bold'>Gadget Heaven</h1>
                 <p className='mt-2'>
@@ -34,7 +34,7 @@ const Footer = () => {
                     </nav>
                 </footer>
             </div>
-        </div>
+        </footer>
 
     );
 };
