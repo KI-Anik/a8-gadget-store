@@ -15,32 +15,41 @@ const CardDetails = () => {
 
     return (
         <div>
-            
-        <div className="hero bg-white w-3/5 mx-auto rounded-3xl py-5">
-            <div className="hero-content flex-col lg:flex-row gap-10">
-                <img
-                    src={product_image}
-                    className=" rounded-lg shadow-2xl w-1/3" />
-                <div className='space-y-4'>
-                    <h1 className="text-2xl font-bold">{product_title}</h1>
-                    <p>Price: ${price}</p>
-                    <p className="">
-                        {description}
-                    </p>
-                    <p>
-                        Specification:
-                        {
-                            specification.map(spec => <li>{spec}</li>)
-                        }
-                    </p>
-                    <p>
-                        Rating: {rating}
-                    </p>
-                    <button className="btn btn-primary">Add to cart</button>
-                    <FaRegHeart></FaRegHeart>
+            <div className='text-white text-center space-y-6 bg-purple-500 pb-44 pt-10'>
+
+                <h1 className='text-5xl font-bold'>Product Details</h1>
+                <p className='font-xl'>Explore the latest gadgets that will take your experience to the next level. From smart devices to <br /> the coolest accessories, we have it all!</p>
+            </div>
+
+            <div className="hero bg-white w-3/5 mx-auto rounded-3xl py-5 relative bottom-36">
+                <div className="hero-content flex-col lg:flex-row gap-10">
+                    <img
+                        src={product_image}
+                        className="rounded-2xl shadow-2xl w-1/3" />
+                    <div className='space-y-4'>
+                        <h1 className="text-2xl font-bold">{product_title}</h1>
+                        <p>Price: ${price}</p>
+                        <p className="">
+                            {description}
+                        </p>
+                        <p>
+                            Specification:
+                            {
+                                specification.map(spec => <li>{spec}</li>)
+                            }
+                        </p>
+                        <p>
+                            Rating: {rating}
+                        </p>
+
+                        <div className='flex gap-4 items-center'>
+                        <button className="btn btn-secondary">Add to cart</button>
+                        <button className="btn btn-secondary">Add to wishlist</button>
+                        {/* <FaRegHeart className='p-2 border'></FaRegHeart> */}
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
         </div>
     );
 };

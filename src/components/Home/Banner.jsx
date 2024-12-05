@@ -2,9 +2,9 @@ import React from 'react';
 
 const Banner = () => {
     return (
-        <div className=''>
+        <div>
 
-            <div className='text-center space-y-6 bg-purple-500 pb-72 pt-10'>
+            <div className='text-center space-y-6 bg-purple-500 pb-64 pt-10'>
 
                 <h1 className='text-5xl font-bold'>Upgrade Your Tech Accessorize with <br /> Gadget Heaven Accessories</h1>
                 <p className='font-xl'>Explore the latest gadgets that will take your experience to the next level. From smart devices <br /> to the coolest accessories, we have it all!</p>
@@ -13,7 +13,7 @@ const Banner = () => {
 
             {/* Image section start */}
             <div className='flex justify-center'>
-                <div className=' relative bottom-60 border w-1/2 p-3 rounded-3xl  mt-7'>
+                <div className='relative bottom-60 border w-1/2 p-4 backdrop-blur-2xl rounded-3xl mt-7'>
                     <img className='rounded-2xl w-full' src="/public/assets/banner.jpg" alt="" />
                 </div>
             </div>
