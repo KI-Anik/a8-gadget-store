@@ -10,3 +10,10 @@ body{
 p{
     color: rgb(158, 155, 155);
 }
+
+aside > ul > a {
+ padding: 10px;
+ margin: 10px;
+ background-color: seashell;
+ border-radius: 10px;
+}

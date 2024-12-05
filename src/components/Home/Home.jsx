@@ -1,12 +1,12 @@
 import React from 'react';
 import Banner from './Banner';
-import GadgetDetail from './GadgetDetail';
+import AllProducts from '../AllProducts/AllProducts';
 
 const Home = () => {
     return (
-        <div>
+        <div className='bg-slate-100 py-8'>
             <Banner></Banner>
-            <GadgetDetail></GadgetDetail>
+            <AllProducts></AllProducts>
         </div>
     );
 };
