@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import Cards from './Cards';
+import Card from './Card';
 import { Link, useLoaderData, useParams } from 'react-router-dom';
 
 const AllProducts = () => {
@@ -29,7 +29,7 @@ const AllProducts = () => {
                 </aside>
 
                 {
-                    gadget.map(card => <Cards key={card.id} card={card}></Cards>)
+                    gadget.map(card => <Card key={card.id} card={card}></Card>)
                 }
 
             </div>

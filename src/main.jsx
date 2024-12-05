@@ -9,6 +9,7 @@ import Root from './components/Root/Root';
 import Home from './components/Home/Home';
 import Statistic from './components/Statistic/Statistic';
 import DashBoard from './components/DashBoard/DashBoard';
+import CardDetails from './components/AllProducts/cardDetails';
 
 const router = createBrowserRouter([
   {
@@ -19,7 +20,11 @@ const router = createBrowserRouter([
       {
         path: '/',
         element: <Home></Home>,
-        loader: ()=>fetch('/fakeData.json')
+      },
+      {
+        path: '/details/:id',
+        loader: () => fetch(`/fakeData.json`),
+        element: <CardDetails></CardDetails>,
       },
       {
         path: '/statistic',

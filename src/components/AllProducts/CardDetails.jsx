@@ -1,11 +1,21 @@
 import React from 'react';
+import { useLoaderData, useParams } from 'react-router-dom';
 
-const ViewDetails = () => {
+const CardDetails = () => {
+
+   const {id} = useParams()
+   const pId = parseInt(id)
+   const data = useLoaderData()
+
+   const singleCard = data.find(card => card.id === pId)
+
+   const {id:currentBookId, product_image} = singleCard
+    
     return (
-        <div className="hero bg-base-200 min-h-screen">
+        <div className="hero bg-base-200 ">
         <div className="hero-content flex-col lg:flex-row">
           <img
-            src="https://img.daisyui.com/images/stock/photo-1635805737707-575885ab0820.webp"
+            src={product_image}
             className="max-w-sm rounded-lg shadow-2xl" />
           <div>
             <h1 className="text-5xl font-bold">Box Office News!</h1>
@@ -20,4 +30,4 @@ const ViewDetails = () => {
     );
 };
 
-export default ViewDetails;
+export default CardDetails;

@@ -1,7 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-const Cards = ({ card }) => {
-    const { product_title, product_image, price } = card
+const Card = ({ card }) => {
+    const {id, product_title, product_image, price } = card
 
     return (
         <div className="card bg-base-100  shadow-xl">
@@ -15,11 +16,13 @@ const Cards = ({ card }) => {
                 <h2 className="card-title">{product_title}</h2>
                 <p>{price}</p>
                 <div className="card-actions">
-                    <button className="btn btn-primary">View Details</button>
+                    <Link to={`/details/${id}`}>
+                    <button  className="btn btn-primary">View Details</button>
+                    </Link>
                 </div>
             </div>
         </div>
     );
 };
 
-export default Cards;
+export default Card;
