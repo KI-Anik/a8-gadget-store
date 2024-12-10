@@ -21,4 +21,4 @@ const addToStoredList = (id) => {
     }
 }
 
-export {addToStoredList}
+export {addToStoredList, getStoredList}

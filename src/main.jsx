@@ -9,9 +9,8 @@ import Root from './components/Root/Root';
 import Home from './components/Home/Home';
 import Statistic from './components/Statistic/Statistic';
 import DashBoard from './components/DashBoard/DashBoard';
-import CardDetails from './components/AllProducts/cardDetails';
+import CardDetails from './components/AllProducts/CardDetails';
 import Error from './components/Error/Error';
-import Cart from './components/DashBoard/Cart';
 import { Toaster } from 'react-hot-toast';
 
 
@@ -40,6 +39,7 @@ const router = createBrowserRouter([
       {
         path: '/dashboard',
         element: <DashBoard></DashBoard>,
+        loader: () => fetch('/fakeData.json'),
        
       },
     ]
