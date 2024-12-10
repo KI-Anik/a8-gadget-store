@@ -1,11 +1,12 @@
 import React from 'react';
+import { FaTrashAlt } from 'react-icons/fa';
 
-const CardList = ({cart}) => {
-    const { id: currentBookId, product_image, product_title, price, description, specification, rating } = cart
+const CardList = ({cart, handleRemove}) => {
+    const { id, product_image, product_title, price, description, specification, rating } = cart
 
     return (
-        <div className="  mx-auto rounded-3xl py-2">
-        <div className="bg-white p-5 grid grid-cols-3 items-center">
+        <div className=" py-2">
+        <div className="bg-white p-5 grid grid-cols-3 items-center gri">
             <img
                 src={product_image}
                 className="rounded-2xl shadow-2xl " />
@@ -17,7 +18,8 @@ const CardList = ({cart}) => {
                 </p>
                 <p>Price: ${price}</p>
             </div>
-            <button className=' '>delete</button>
+            <button onClick={()=>handleRemove(id)} className='mx-auto'><FaTrashAlt></FaTrashAlt></button>
+            
         </div>
     </div>
     );

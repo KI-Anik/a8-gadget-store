@@ -1,24 +1,22 @@
 import React, { useEffect, useState } from 'react';
-import { useLoaderData } from 'react-router-dom';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
-import { getStoredList } from '../Utils';
+import { getStoredList, removeList } from '../Utils';
 import CardList from './cardList';
 
 const DashBoard = () => {
-    const allData = useLoaderData();
-
-    console.log(Array.isArray(allData))
-    
     const [carts, setCarts] = useState([]);
 
     useEffect(() => {
         const storedList = getStoredList()
-        const storedListInt = storedList.map(id => parseInt(id))
+        setCarts(storedList)
+    }, [])
 
-        const cartList = allData.filter(product => storedListInt.includes(product.id))
-        setCarts(cartList)
-    }, [allData])
+    const handleRemove = id =>{
+        removeList(id)
+        const storedList = getStoredList()
+        setCarts(storedList)
+    }
 
     return (
         <div>
@@ -37,9 +35,13 @@ const DashBoard = () => {
 
                 <TabPanel>
 
-                    <div className='p-4 '>
+                    <div className='p-4'>
                     {
-                        carts.map(cart => <CardList key={cart.id} cart={cart}></CardList>)
+                        carts.map(cart => <CardList
+                             key={cart.id}
+                              cart={cart}
+                              handleRemove={handleRemove}
+                              ></CardList>)
                     }
                     </div>
 
@@ -49,7 +51,10 @@ const DashBoard = () => {
                 </TabPanel>
             </Tabs>
 
-            <h1 className='text-5xl text-center p-5'>No content</h1>
+{
+    carts.length == 0 && <h1 className='text-5xl text-center p-5'>No content</h1>
+}
+            
         </div>
     );
 };

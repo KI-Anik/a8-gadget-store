@@ -1,5 +1,7 @@
+import toast from "react-hot-toast"
+
 const getStoredList = () => {
-    const storedListStr = localStorage.getItem('gadget-list')
+    const storedListStr = localStorage.getItem('cart')
     if(storedListStr){
         const storedList = JSON.parse(storedListStr)
         return storedList
@@ -9,16 +11,22 @@ const getStoredList = () => {
     }
 }
 
-const addToStoredList = (id) => {
+const addToStoredList = (singleCard) => {
     const storedList =  getStoredList()
-    if(storedList.includes(id)){
-        console.log( id ,'alreday exists')
-    }
-    else{
-        storedList.push(id)
-        const storedListStr = JSON.stringify(storedList)
-        localStorage.setItem('gadget-list', storedListStr)
-    }
+  const isExits = storedList.find(item => item.id == singleCard.id)
+
+  if (isExits) return toast.error('already selected')
+
+    storedList.push(singleCard)
+    localStorage.setItem('cart', JSON.stringify(storedList))
+    toast.success('add to cart')
 }
 
-export {addToStoredList, getStoredList}
+const removeList = (id) => {
+    const storedList =  getStoredList()
+    const remaining = storedList.filter(item => item.id != id)
+    localStorage.setItem('cart', JSON.stringify(remaining))
+    toast.success('remove from cart')
+}
+
+export {addToStoredList, getStoredList, removeList}
