@@ -1,4 +1,4 @@
-import { StrictMode } from 'react'
+import { StrictMode, useState } from 'react'
 import { createRoot } from 'react-dom/client'
 import {
   createBrowserRouter,
@@ -11,8 +11,12 @@ import Statistic from './components/Statistic/Statistic';
 import DashBoard from './components/DashBoard/DashBoard';
 import CardDetails from './components/AllProducts/cardDetails';
 import Error from './components/Error/Error';
+import Cart from './components/DashBoard/Cart';
+import { Toaster } from 'react-hot-toast';
+
 
 const router = createBrowserRouter([
+
   {
     path: "/",
     element: <Root></Root>,
@@ -35,14 +39,17 @@ const router = createBrowserRouter([
       },
       {
         path: '/dashboard',
-        element: <DashBoard></DashBoard>
+        element: <DashBoard></DashBoard>,
+       
       },
     ]
   },
 ]);
 
+
 createRoot(document.getElementById('root')).render(
   <StrictMode>
         <RouterProvider router={router} />
+        <Toaster></Toaster>
   </StrictMode>,
 )

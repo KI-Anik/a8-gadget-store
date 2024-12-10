@@ -1,6 +1,8 @@
 import React from 'react';
 import { useLoaderData, useParams } from 'react-router-dom';
 import { FaRegHeart } from 'react-icons/fa';
+import toast from 'react-hot-toast';
+import { addToStoredList } from '../Utils';
 
 
 const CardDetails = () => {
@@ -12,6 +14,11 @@ const CardDetails = () => {
     const singleCard = data.find(card => card.id === pId)
 
     const { id: currentBookId, product_image, product_title, price, description, specification, rating } = singleCard
+
+    const handleCartBtn = (id) =>{
+        toast.success('item added to cart')
+        addToStoredList(id)
+    }
 
     return (
         <div>
@@ -35,7 +42,7 @@ const CardDetails = () => {
                         <p>
                             Specification:
                             {
-                                specification.map(spec => <li>{spec}</li>)
+                                specification.map((spec, idx) => <li key={idx}>{spec}</li>)
                             }
                         </p>
                         <p>
@@ -43,7 +50,7 @@ const CardDetails = () => {
                         </p>
 
                         <div className='flex gap-4 items-center'>
-                        <button className="btn btn-secondary">Add to cart</button>
+                        <button onClick={() => handleCartBtn(id)} className="btn btn-secondary">Add to cart</button>
                         <button className="btn btn-secondary">Add to wishlist</button>
                         {/* <FaRegHeart className='p-2 border'></FaRegHeart> */}
                         </div>
