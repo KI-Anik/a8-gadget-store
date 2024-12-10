@@ -12,10 +12,6 @@ const CardDetails = () => {
     const singleCard = data.find(card => card.id === pId)
     const { id: currentBookId, product_image, product_title, price, description, specification, rating } = singleCard
 
-    const handleCartBtn = (singleCard) => {
-        addToStoredList(singleCard)
-    }
-
     return (
         <div>
             <div className='text-white text-center space-y-6 bg-purple-500 pb-44 pt-10'>
@@ -32,22 +28,20 @@ const CardDetails = () => {
                     <div className='space-y-4'>
                         <h1 className="text-2xl font-bold">{product_title}</h1>
                         <p>Price: ${price}</p>
-                        <p className="">
-                            {description}
-                        </p>
+                        <p>{description}</p>
+                            
                         <p>
                             Specification:
                             {
                                 specification.map((spec, idx) => <li key={idx}>{spec}</li>)
                             }
                         </p>
-                        <p>
-                            Rating: {rating}
-                        </p>
+
+                        <p>Rating: {rating}</p>
 
                         <div className='flex gap-4 items-center'>
-                            <button onClick={() => handleCartBtn(singleCard)} className="btn btn-secondary">Add to cart</button>
-                            <button className="btn btn-secondary">Add to wishlist</button>
+                            <button onClick={() => addToStoredList(singleCard, 'cart')} className="btn btn-secondary">Add to cart</button>
+                            <button onClick={() => addToStoredList(singleCard, 'wish-list')} className="btn btn-secondary">Add to wishlist</button>
                             {/* <FaRegHeart className='p-2 border'></FaRegHeart> */}
                         </div>
                     </div>

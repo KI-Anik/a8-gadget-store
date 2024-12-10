@@ -21,7 +21,7 @@ const router = createBrowserRouter([
     element: <Root></Root>,
     errorElement: <Error></Error>,
     children: [
-      
+
       {
         path: '/',
         element: <Home></Home>,
@@ -34,7 +34,7 @@ const router = createBrowserRouter([
       {
         path: '/statistic',
         element: <Statistic></Statistic>,
-        
+
       },
       {
         path: '/dashboard',
@@ -47,7 +47,7 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-        <RouterProvider router={router} />
-        <Toaster></Toaster>
+    <RouterProvider router={router} />
+    <Toaster></Toaster>
   </StrictMode>,
 )

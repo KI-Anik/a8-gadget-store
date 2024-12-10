@@ -1,32 +1,43 @@
 import toast from "react-hot-toast"
 
-const getStoredList = () => {
-    const storedListStr = localStorage.getItem('cart')
-    if(storedListStr){
-        const storedList = JSON.parse(storedListStr)
-        return storedList
-    }
-    else{
-        return []
-    }
-}
+const getStoredList = (type) => {
+    const storedListStr = localStorage.getItem(type);
+    return storedListStr ? JSON.parse(storedListStr) : [];
+  };
 
-const addToStoredList = (singleCard) => {
-    const storedList =  getStoredList()
-  const isExits = storedList.find(item => item.id == singleCard.id)
+const addToStoredList = (singleCard, type) => {
+    const storedListStr = localStorage.getItem(type)
+    const storedList = storedListStr ? JSON.parse(storedListStr) : [];
 
-  if (isExits) return toast.error('already selected')
+  const isExists = storedList.find(item => item.id === singleCard.id)
+  if (isExists) return toast.error(`already selected in ${type}`)
+
+    // check if the item exists in other list
+    const otherType = type === 'cart' ? 'wish-list' : 'cart';
+    const otherListStr = localStorage.getItem(otherType)
+    const otherList = otherListStr ? JSON.parse(otherListStr) : []
+
+    if(otherList.find(item => item.id === singleCard.id)){
+return toast.error(`item already in ${otherType}`)
+    }
 
     storedList.push(singleCard)
-    localStorage.setItem('cart', JSON.stringify(storedList))
-    toast.success('add to cart')
+    localStorage.setItem(type, JSON.stringify(storedList))
+    toast.success(`added to ${type}`)
 }
 
-const removeList = (id) => {
-    const storedList =  getStoredList()
-    const remaining = storedList.filter(item => item.id != id)
-    localStorage.setItem('cart', JSON.stringify(remaining))
-    toast.success('remove from cart')
-}
+
+const removeList = (id, type) => {
+    const storedListStr = localStorage.getItem(type); // Retrieve from localStorage
+    const storedList = storedListStr ? JSON.parse(storedListStr) : [];
+  
+    // Filter out the item to be removed
+    const remaining = storedList.filter(item => item.id !== id);
+  
+    // Save back to localStorage
+    localStorage.setItem(type, JSON.stringify(remaining));
+    toast.success(`Removed from ${type}`);
+  };
+  
 
 export {addToStoredList, getStoredList, removeList}

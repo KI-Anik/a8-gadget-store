@@ -1,21 +1,33 @@
 import React, { useEffect, useState } from 'react';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
-import { getStoredList, removeList } from '../Utils';
+import { addToStoredList, getStoredList, removeList } from '../Utils';
 import CardList from './cardList';
 
 const DashBoard = () => {
     const [carts, setCarts] = useState([]);
+    const [wishLists, setwishLists] = useState([])
 
     useEffect(() => {
-        const storedList = getStoredList()
-        setCarts(storedList)
+
+        setCarts(getStoredList('cart'))
+        setwishLists(getStoredList('wish-list'))
     }, [])
 
-    const handleRemove = id =>{
-        removeList(id)
-        const storedList = getStoredList()
-        setCarts(storedList)
+    const handleRemove = (id, type) => {
+        removeList(id, type);
+
+        if (type === 'cart') {
+            setCarts(getStoredList('cart'))
+        } else {
+            setwishLists(getStoredList('wish-list'))
+        }
+    };
+
+    const moveToCart = item => {
+        handleRemove(item.id, 'wish-list')
+        addToStoredList(item, 'cart')
+        setCarts(getStoredList('cart'))
     }
 
     return (
@@ -24,37 +36,42 @@ const DashBoard = () => {
 
                 <h1 className='text-5xl font-bold'>Dashboard</h1>
                 <p className='font-xl'>Explore the latest gadgets that will take your experience to the next level. From smart devices to <br /> the coolest accessories, we have it all!</p>
-
-
             </div>
             <Tabs>
                 <TabList >
                     <Tab>Cart</Tab>
-                    <Tab>Wishlist</Tab>
+                    <Tab>Wishlists</Tab>
                 </TabList>
 
                 <TabPanel>
-
                     <div className='p-4'>
-                    {
-                        carts.map(cart => <CardList
-                             key={cart.id}
-                              cart={cart}
-                              handleRemove={handleRemove}
-                              ></CardList>)
-                    }
+                        {
+                            carts.map(item => <CardList
+                                key={item.id}
+                                item={item}
+                                handleRemove={()=>handleRemove(item.id, 'cart')}
+                            ></CardList>)
+                        }
                     </div>
-
                 </TabPanel>
+
                 <TabPanel>
-                    <h2>Any content 2</h2>
+                    <div className='p-4'>
+                        {
+                            wishLists.map(item => <CardList
+                                key={item.id}
+                                item={item}
+                                handleRemove={()=>handleRemove(item.id, 'wish-list')}
+                                moveToCart = {() => moveToCart(item)}
+                            ></CardList>)
+                        }
+                    </div>
                 </TabPanel>
             </Tabs>
+            {
+                carts.length == 0 && <h1 className='text-5xl text-center p-5'>No content</h1>
+            }
 
-{
-    carts.length == 0 && <h1 className='text-5xl text-center p-5'>No content</h1>
-}
-            
         </div>
     );
 };
