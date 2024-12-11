@@ -8,7 +8,7 @@ const DashBoard = () => {
 
     const [carts, setCarts] = useState([]);
     const [wishLists, setwishLists] = useState([])
-    const [totalPrice, setTotalPrice] = useState(0);
+    const [totalPrice, setTotalPrice] = useState(0); // update price
     const [Modal, setModal] = useState(false)
 
     useEffect(() => {
@@ -51,7 +51,7 @@ const DashBoard = () => {
         setModal(true);
         setCarts([]);
         setTotalPrice(0);
-        localStorage.setItem('cart', JSON.stringify([]));
+        localStorage.setItem('cart', JSON.stringify([])); // empty all
     };
 
     return (

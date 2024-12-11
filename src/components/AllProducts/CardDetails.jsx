@@ -2,6 +2,7 @@ import React from 'react';
 import { useLoaderData, useParams } from 'react-router-dom';
 import { FaRegHeart } from 'react-icons/fa';
 import { addToStoredList } from '../Utils';
+import { FaCartShopping } from 'react-icons/fa6';
 
 
 const CardDetails = () => {
@@ -27,7 +28,7 @@ const CardDetails = () => {
                         className="rounded-2xl shadow-2xl w-1/3" />
                     <div className='space-y-4'>
                         <h1 className="text-2xl font-bold">{product_title}</h1>
-                        <p>Price: ${price}</p>
+                        <p className='font-semibold'>Price: ${price}</p>
                         <p>{description}</p>
                             
                         <p>
@@ -39,9 +40,19 @@ const CardDetails = () => {
 
                         <p>Rating: {rating}</p>
 
+                            {/* value store in local storage */}
                         <div className='flex gap-4 items-center'>
-                            <button onClick={() => addToStoredList(singleCard, 'cart')} className="btn btn-secondary">Add to cart</button>
-                            <button onClick={() => addToStoredList(singleCard, 'wish-list')} className='btn hover:btn-secondary' ><FaRegHeart ></FaRegHeart></button>
+                            <button onClick={() => 
+                            addToStoredList(singleCard, 'cart')} 
+                            className="btn btn-secondary">
+                                Add to cart <FaCartShopping></FaCartShopping> 
+                                </button>
+
+                            <button onClick={() => 
+                                addToStoredList(singleCard, 'wish-list')} 
+                                className='btn hover:btn-secondary' >
+                                    <FaRegHeart ></FaRegHeart>
+                                    </button>
                             
                         </div>
                     </div>

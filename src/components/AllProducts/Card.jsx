@@ -16,6 +16,8 @@ const Card = ({ card }) => {
                 <h2 className="card-title">{product_title}</h2>
                 <p>Price: ${price}</p>
                 <div className="card-actions">
+
+                    {/* UseParams in 'cardDetails.jsx' */}
                     <Link to={`/details/${id}`}>
                     <button  className="btn btn-primary">View Details</button>
                     </Link>

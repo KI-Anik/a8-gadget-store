@@ -18,7 +18,8 @@ const Navbar = () => {
                     <NavLink to={'/about'}>About Us</NavLink>
                 </div>
                 
-                <div className='flex gap-5'>
+                {/* right side two icons */}
+                <div className='flex gap-5 text-xl'>
                     <IoCartOutline></IoCartOutline>
                     <FaRegHeart></FaRegHeart>
                 </div>

@@ -7,9 +7,9 @@ const getStoredList = (type) => {
 
 const addToStoredList = (singleCard, type) => {
     const storedListStr = localStorage.getItem(type)
-    const storedList = storedListStr ? JSON.parse(storedListStr) : [];
+    const storedList = storedListStr ? JSON.parse(storedListStr) : []; //convert value to integer
 
-  const isExists = storedList.find(item => item.id === singleCard.id)
+  const isExists = storedList.find(item => item.id === singleCard.id) // check in cart
   if (isExists) return toast.error(`already selected in ${type}`)
 
     // check if the item exists in other list
@@ -22,7 +22,7 @@ return toast.error(`item already in ${otherType}`)
     }
 
     storedList.push(singleCard)
-    localStorage.setItem(type, JSON.stringify(storedList))
+    localStorage.setItem(type, JSON.stringify(storedList)) // stored as string
     toast.success(`added to ${type}`)
 }
 

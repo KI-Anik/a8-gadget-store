@@ -3,18 +3,19 @@ import Card from './Card';
 
 const AllProducts = ({categories}) => {
 
-    const [gadget, setGadget] = useState([])
-    const [category, setCategory] = useState("All Product")
+    const [gadget, setGadget] = useState([]) // handle 10 data for display
+    const [category, setCategory] = useState("All Product") // only for display side categories name
 
     useEffect(() => {
         fetch('/fakeData.json')
             .then(res => res.json())
+
             .then(data => {
                 if(category === "All Product"){
                     setGadget(data)
                 }
                 else{
-                    const filterData = data.filter(item=> item.category === category)
+                    const filterData = data.filter(item=> item.category === category) // filtering data by side categories
                     setGadget(filterData)
                 }
             })
@@ -31,14 +32,28 @@ const AllProducts = ({categories}) => {
                 <aside className='row-span-4 w-9/12 mx-auto'>
 
                     <div className='card bg-base-100 items-center shadow-xl py-8 gap-5'>
+                        {/* map for display side category name as btn, addEvent for filter */}
                         {
-                            categories.map(item => <button key={item.id} className='btn hover:bg-purple-500' onClick={()=> handleCategory(item.category)}>{item.category}</button>)
+                            categories.map(item =>
+                                 <button key={item.id}
+                                  className='btn hover:bg-purple-500'
+                                  onClick={()=> handleCategory(item.category)}
+                                  >
+                                    {item.category}
+                                    </button>)
                         }
                     </div>
                 </aside>
 
                 {
-                   gadget.length === 0 ? <p className='text-5xl text-center p-5'>No content</p> :  gadget.map(card => <Card key={card.id} card={card}></Card>)
+                   gadget.length === 0 ?
+                    <p className='text-5xl p-5 text-red-500 font-bold'> Sorry! No Item </p> :
+                      gadget.map(card => 
+                      <Card key={card.id} 
+                      card={card}
+                      >
+
+                      </Card>)
                 }
 
             </div>
