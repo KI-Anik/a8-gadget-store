@@ -13,6 +13,7 @@ import DashBoard from './components/DashBoard/DashBoard';
 import CardDetails from './components/AllProducts/CardDetails';
 import Error from './components/Error/Error';
 import { Toaster } from 'react-hot-toast';
+import About from './components/About/About';
 
 
 const router = createBrowserRouter([
@@ -43,6 +44,10 @@ const router = createBrowserRouter([
         loader: () => fetch('/fakeData.json'),
         element: <DashBoard></DashBoard>,
       },
+      {
+        path: '/about',
+        element: <About></About>
+      }
     ]
   },
 ]);
