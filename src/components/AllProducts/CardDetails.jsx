@@ -41,8 +41,8 @@ const CardDetails = () => {
 
                         <div className='flex gap-4 items-center'>
                             <button onClick={() => addToStoredList(singleCard, 'cart')} className="btn btn-secondary">Add to cart</button>
-                            <button onClick={() => addToStoredList(singleCard, 'wish-list')} className="btn btn-secondary">Add to wishlist</button>
-                            {/* <FaRegHeart className='p-2 border'></FaRegHeart> */}
+                            <button onClick={() => addToStoredList(singleCard, 'wish-list')} className='btn hover:btn-secondary' ><FaRegHeart ></FaRegHeart></button>
+                            
                         </div>
                     </div>
                 </div>
