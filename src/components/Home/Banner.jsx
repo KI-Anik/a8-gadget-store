@@ -1,14 +1,15 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Banner = () => {
     return (
         <div>
 
-            <div className='text-center space-y-6 bg-purple-500 pb-64 pt-10'>
+            <div className='text-center space-y-6 bg-purple-500 pb-64 pt-10 rounded-b-2xl'>
 
                 <h1 className='text-5xl font-bold'>Upgrade Your Tech Accessorize with <br /> Gadget Heaven Accessories</h1>
                 <p className='font-xl'>Explore the latest gadgets that will take your experience to the next level. From smart devices <br /> to the coolest accessories, we have it all!</p>
-                <button className='btn bg-white text-purple-600 rounded-full px-6 font-bold'>Shop Now</button>
+                <Link to={'/dashboard'} className='btn bg-white text-purple-600 rounded-full px-6 font-bold'>Shop Now</Link>
             </div>
 
             {/* Image section start */}

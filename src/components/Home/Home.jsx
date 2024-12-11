@@ -4,7 +4,7 @@ import AllProducts from '../AllProducts/AllProducts';
 
 const Home = () => {
     return (
-        <div className='bg-slate-100 py-8'>
+        <div className='w-11/12 mx-auto'>
             <Banner></Banner>
             <AllProducts></AllProducts>
         </div>
