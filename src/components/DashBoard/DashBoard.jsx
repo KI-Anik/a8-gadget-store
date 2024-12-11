@@ -3,8 +3,10 @@ import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import { addToStoredList, getStoredList, removeList } from '../Utils';
 import CardList from './cardList';
+import { useNavigate } from 'react-router-dom';
 
 const DashBoard = () => {
+    const navigate = useNavigate()
 
     const [carts, setCarts] = useState([]);
     const [wishLists, setwishLists] = useState([])
@@ -109,11 +111,14 @@ const DashBoard = () => {
             {Modal && (
         <div className="modal modal-open text-center">
           <div className="modal-box flex flex-col justify-center items-center space-y-3">
-            <img src="../../../public/assets/Group.png" alt="" />
+            <img src="/assets/Group.png" alt="" />
             <h3 className="font-bold text-lg">Successfully Paid!</h3>
             <p className="py-4">Your payment was successful, and your cart is now empty.</p>
             <div className="modal-action">
-              <button className="btn btn-primary" onClick={() => setModal(false)}>
+              <button className="btn btn-primary" onClick={() => {
+                setModal(false)
+                navigate('/')
+                }}>
                 Close
               </button>
             </div>
