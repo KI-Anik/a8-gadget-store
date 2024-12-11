@@ -5,20 +5,30 @@ import { addToStoredList, getStoredList, removeList } from '../Utils';
 import CardList from './cardList';
 
 const DashBoard = () => {
+
     const [carts, setCarts] = useState([]);
     const [wishLists, setwishLists] = useState([])
-
+    const [totalPrice, setTotalPrice] = useState(0);
+    const [Modal, setModal] = useState(false)
 
     useEffect(() => {
-        setCarts(getStoredList('cart'))
+        const storedCarts = getStoredList('cart')
+        setCarts(storedCarts)
+        setTotalPrice(calculateTotalPrice(storedCarts))
         setwishLists(getStoredList('wish-list'))
     }, [])
+
+    const calculateTotalPrice = (list) => {
+        return list.reduce((sum, item)=> sum + item.price, 0)
+    };
 
     const handleRemove = (id, type) => {
         removeList(id, type);
 
         if (type === 'cart') {
-            setCarts(getStoredList('cart'))
+            const updatedCarts = getStoredList('cart')
+            setCarts(updatedCarts)
+            setTotalPrice(calculateTotalPrice(updatedCarts))
         } else {
             setwishLists(getStoredList('wish-list'))
         }
@@ -27,8 +37,22 @@ const DashBoard = () => {
     const moveToCart = item => {
         handleRemove(item.id, 'wish-list')
         addToStoredList(item, 'cart')
-        setCarts(getStoredList('cart'))
+        const updatedCarts = getStoredList('cart')
+        setCarts(updatedCarts)
+        setTotalPrice(calculateTotalPrice(updatedCarts))
     }
+
+    const handleSortByPrice = () => {
+        const sortedCarts = [...carts].sort((a,b) => a.price - b.price);
+        setCarts(sortedCarts);
+    };
+
+    const handlePurchase = () => {
+        setModal(true);
+        setCarts([]);
+        setTotalPrice(0);
+        localStorage.setItem('cart', JSON.stringify([]));
+    };
 
     return (
         <div>
@@ -38,10 +62,10 @@ const DashBoard = () => {
                 <p className='font-xl'>Explore the latest gadgets that will take your experience to the next level. From smart devices to <br /> the coolest accessories, we have it all!</p>
             </div>
 
-            <div className='flex justify-end items-center gap-10'>
-                <h3>Price :</h3>
-                <button>Sort By price</button>
-                <button>Purchase</button>
+            <div className='flex px-5 py-2 justify-end items-center gap-10 '>
+                <h3>Price :{totalPrice} </h3>
+                <button onClick={handleSortByPrice} className='btn hover:bg-lime-400'>Sort By price</button>
+                <button onClick={handlePurchase} className='btn hover:bg-green-500'>Purchase</button>
             </div>
             <Tabs>
                 <TabList >
@@ -81,6 +105,20 @@ const DashBoard = () => {
                 </TabPanel>
             </Tabs>
 
+                    
+            {Modal && (
+        <div className="modal modal-open text-center">
+          <div className="modal-box">
+            <h3 className="font-bold text-lg">Successfully Paid!</h3>
+            <p className="py-4">Your payment was successful, and your cart is now empty.</p>
+            <div className="modal-action">
+              <button className="btn btn-primary" onClick={() => setModal(false)}>
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
 
         </div>
     );

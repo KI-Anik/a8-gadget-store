@@ -32,7 +32,7 @@ const AllProducts = ({categories}) => {
 
                     <div className='card bg-base-100 items-center shadow-xl py-8 gap-5'>
                         {
-                            categories.map(item => <button className='btn hover:bg-purple-500' onClick={()=> handleCategory(item.category)}>{item.category}</button>)
+                            categories.map(item => <button key={item.id} className='btn hover:bg-purple-500' onClick={()=> handleCategory(item.category)}>{item.category}</button>)
                         }
                     </div>
                 </aside>
