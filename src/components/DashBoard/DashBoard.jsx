@@ -108,7 +108,8 @@ const DashBoard = () => {
                     
             {Modal && (
         <div className="modal modal-open text-center">
-          <div className="modal-box">
+          <div className="modal-box flex flex-col justify-center items-center space-y-3">
+            <img src="../../../public/assets/Group.png" alt="" />
             <h3 className="font-bold text-lg">Successfully Paid!</h3>
             <p className="py-4">Your payment was successful, and your cart is now empty.</p>
             <div className="modal-action">
