@@ -5,7 +5,7 @@ const Card = ({ card }) => {
     const {id, product_title, product_image, price } = card
 
     return (
-        <div className="card bg-base-100  shadow-xl">
+        <div className="card bg-base-100 shadow-xl">
             <figure className="px-10 pt-10">
                 <img
                     src={product_image}
@@ -21,6 +21,7 @@ const Card = ({ card }) => {
                     </Link>
                 </div>
             </div>
+            
         </div>
     );
 };

@@ -1,35 +1,44 @@
 import React, { useEffect, useState } from 'react';
 import Card from './Card';
-import { Link, useLoaderData, useParams } from 'react-router-dom';
 
-const AllProducts = () => {
-    // const data = useLoaderData()
-    // const id = useParams()
+const AllProducts = ({categories}) => {
+
     const [gadget, setGadget] = useState([])
+    const [category, setCategory] = useState("All Product")
 
     useEffect(() => {
         fetch('/fakeData.json')
             .then(res => res.json())
-            .then(data => setGadget(data))
-    }, [])
+            .then(data => {
+                if(category === "All Product"){
+                    setGadget(data)
+                }
+                else{
+                    const filterData = data.filter(item=> item.category === category)
+                    setGadget(filterData)
+                }
+            })
+    }, [category])
+
+    const handleCategory= (name) => {
+        setCategory(name)
+    }
     return (
         <div>
             <h1 className='text-center text-3xl font-bold'>Explore Cutting-Edge Gadgets</h1>
-            <div className='grid grid-cols-1 md:grid-cols-4 my-12 gap-6'>
+            <div className='grid grid-cols-1 md:grid-cols-4 my-12 pb-10 gap-6'>
+                
                 <aside className='row-span-4 w-9/12 mx-auto'>
 
-                    <ul className='card bg-base-100 items-center justify-center shadow-xl py-8'>
-                        {/* applied raw css */}
-                        <Link to={'/'}>All Products</Link>
-                        <Link to={''}>Iphone</Link>
-                        <Link to={''}>Samsung</Link>
-                        <Link to={''}>Oppo</Link>
-                        <Link to={''}>I-pad</Link>
-                    </ul>
+                    <div className='card bg-base-100 items-center shadow-xl py-8 gap-5'>
+                        {
+                            categories.map(item => <button className='btn hover:bg-purple-500' onClick={()=> handleCategory(item.category)}>{item.category}</button>)
+                        }
+                    </div>
                 </aside>
 
                 {
-                    gadget.map(card => <Card key={card.id} card={card}></Card>)
+                   gadget.length === 0 ? <p className='text-5xl text-center p-5'>No content</p> :  gadget.map(card => <Card key={card.id} card={card}></Card>)
                 }
 
             </div>

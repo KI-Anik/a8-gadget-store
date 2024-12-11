@@ -3,7 +3,7 @@
       "id": 1,
       "product_title": "Galaxy Tab S8+",
       "product_image": "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-tab-s8-plus.jpg",
-      "category": "Smartphone",
+      "category": "Samsung",
       "price": 599,
       "description": "The TechPro X1 features a sleek design with powerful performance, great for gaming and multitasking.",
       "specification": [
@@ -20,7 +20,7 @@
       "id": 2,
       "product_title": "Galaxy S22 5G",
       "product_image": "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-s22-5g.jpg",
-      "category": "Smartphone",
+      "category": "Samsung",
       "price": 799,
       "description": "PixelMax Z offers an amazing camera experience with a stunning display and smooth performance.",
       "specification": [
@@ -37,7 +37,7 @@
       "id": 3,
       "product_title": "Galaxy S22 Ultra 5G",
       "product_image": "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-s22-ultra-5g.jpg",
-      "category": "Smartphone",
+      "category": "Samsung",
       "price": 1199,
       "description": "Premium performance with a 108MP camera and a stunning 120Hz display.",
       "specification": [
@@ -54,7 +54,7 @@
       "id": 4,
       "product_title": "iPhone 13",
       "product_image": "https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-13.jpg",
-      "category": "Smartphone",
+      "category": "Iphone",
       "price": 499,
       "description": "OnePlus Nord 2 offers flagship performance with an affordable price tag.",
       "specification": [
@@ -71,7 +71,7 @@
       "id": 5,
       "product_title": "iPhone 12 Pro Max",
       "product_image": "https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-12-pro-max-.jpg",
-      "category": "Smartphone",
+      "category": "Iphone",
       "price": 1099,
       "description": "iPhone 14 Pro comes with Apple's most advanced camera system and a Super Retina XDR display.",
       "specification": [
@@ -88,7 +88,7 @@
       "id": 6,
       "product_title": "iPhone 13 Pro",
       "product_image": "https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-13-pro.jpg",
-      "category": "Smartphone",
+      "category": "Iphone",
       "price": 899,
       "description": "Xiaomi Mi 11 Ultra offers incredible camera capabilities and premium build quality.",
       "specification": [
@@ -105,7 +105,7 @@
       "id": 7,
       "product_title": "Reno6 Lite",
       "product_image": "https://fdn2.gsmarena.com/vv/bigpic/oppo-reno6-lite.jpg",
-      "category": "Smartphone",
+      "category": "Oppo",
       "price": 699,
       "description": "The Moto Edge 30 Pro offers high-end performance with a 144Hz display and great cameras.",
       "specification": [
@@ -122,7 +122,7 @@
       "id": 8,
       "product_title": "Oppo Find X5",
       "product_image": "https://fdn2.gsmarena.com/vv/bigpic/oppo-find-x5.jpg",
-      "category": "Smartphone",
+      "category": "Oppo",
       "price": 999,
       "description": "Oppo Find X5 Pro brings stunning design with superb performance and camera quality.",
       "specification": [
@@ -139,7 +139,7 @@
       "id": 9,
       "product_title": "iPad mini (2021)",
       "product_image": "https://fdn2.gsmarena.com/vv/bigpic/apple-ipad-mini-2021.jpg",
-      "category": "Smartphone",
+      "category": "I-pad",
       "price": 749,
       "description": "Realme GT 2 Pro combines flagship performance with a 50MP camera and 120Hz AMOLED display.",
       "specification": [
@@ -156,7 +156,7 @@
       "id": 10,
       "product_title": "iPad Pro 11 (2021)",
       "product_image": "https://fdn2.gsmarena.com/vv/bigpic/apple-ipad-pro-11-2021.jpg",
-      "category": "Smartphone",
+      "category": "I-pad",
       "price": 1299,
       "description": "The ultimate gaming phone, the Asus ROG Phone 6 delivers extreme performance with a 165Hz display.",
       "specification": [
