@@ -3,7 +3,7 @@
 Welcome to **Gadget Heaven**, your one-stop shop for the latest gadgets! This project is a feature-rich React application that allows users to browse, add gadgets to their cart or wishlist, sort items by price, and experience a seamless purchase process.
 
 ## Live Website
-[https://gadget-sto.surge.sh/](#)
+[https://gadget-sto.surge.sh](#)
 
 ---
 

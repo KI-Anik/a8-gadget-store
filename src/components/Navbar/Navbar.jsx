@@ -16,6 +16,7 @@ const Navbar = () => {
                     <NavLink to={'/statistic'}>Statistic</NavLink>
                     <NavLink to={'/dashboard'}>Dashboard</NavLink>
                     <NavLink to={'/about'}>About Us</NavLink>
+                    <a href="https://www.facebook.com/iamkhairul101">Contact</a>
                 </div>
                 
                 {/* right side two icons */}
